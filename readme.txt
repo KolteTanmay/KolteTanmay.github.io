@@ -1,4 +1,4 @@
-# TaskFlow – Flask Task Manager Web App
+TaskFlow – Flask Task Manager Web App
 
 TaskFlow is a full-fledged **Task Management Web Application** built with **Flask**, **SQLite**, and **Bootstrap**.  
 It allows users to create, read, update, and delete tasks (CRUD operations) with category and deadline tracking.
@@ -37,9 +37,4 @@ It allows users to create, read, update, and delete tasks (CRUD operations) with
 
 ---
 
-## 📦 Installation & Setup
 
-1. **Clone this repository**
-   ```bash
-   git clone https://github.com/<your-username>/taskflow.git
-   cd taskflow
