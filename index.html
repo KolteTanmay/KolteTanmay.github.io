@@ -1,1 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="mb-4">Your Tasks</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Deadline</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for task in tasks %}
+        <tr>
+            <td>{{ task[1] }}</td>
+            <td>{{ task[2] }}</td>
+            <td>{{ task[3] }}</td>
+            <td>{{ task[4] }}</td>
+            <td>
+                {% if task[5] == 'Completed' %}
+                    <span style = "background-color : green" class="badge bg-success">Completed</span>
+                {% elif task[5] == 'Undergoing' %}
+                    <span style = "background-color : teal" class="badge bg-Undergoing">Undergoing</span>
+                {% else %}
+                    <span style = "background-color : red" class="badge bg-warning text-dark">Pending</span>
+                {% endif %}
+            </td>
+            <td>
+                <a href="{{ url_for('edit', id=task[0]) }}" class="btn btn-sm btn-primary">Edit</a>
+                <a href="{{ url_for('delete', id=task[0]) }}" class="btn btn-sm btn-danger">Delete</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
 
