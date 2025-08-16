@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Edit Task</h2>
+<form method="POST">
+    <div class="mb-3">
+        <label>Title</label>
+        <input type="text" name="title" class="form-control" value="{{ task[1] }}" required>
+    </div>
+    <div class="mb-3">
+        <label>Description</label>
+        <textarea name="description" class="form-control">{{ task[2] }}</textarea>
+    </div>
+    <div class="mb-3">
+        <label>Category</label>
+        <input type="text" name="category" class="form-control" value="{{ task[3] }}">
+    </div>
+    <div class="mb-3">
+        <label>Deadline</label>
+        <input type="date" name="deadline" class="form-control" value="{{ task[4] }}">
+    </div>
+    <div class="mb-3">
+        <label>Status</label>
+        <select name="status" class="form-control">
+            <option value="Pending" {% if task[5] == 'Pending' %}selected{% endif %}>Pending</option>
+            <option value="Completed" {% if task[5] == 'Completed' %}selected{% endif %}>Completed</option>
+            <option value="Undergoing" {% if task[5] == 'Undergoing' %}selected{% endif %}>Undergoing</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Update Task</button>
+</form>
+{% endblock %}
